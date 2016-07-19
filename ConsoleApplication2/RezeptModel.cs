@@ -12,7 +12,7 @@ namespace ConsoleApplication2
         int ZuckerinGramm = 0;
         int ButterinGramm = 0;
         int EierStueck = 0;
-  
+
         public void SetZutatMehl(int MehlVorhanden)
         {
            MehlinGramm = MehlVorhanden;
