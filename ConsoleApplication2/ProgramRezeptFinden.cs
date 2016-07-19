@@ -10,7 +10,6 @@ namespace ConsoleApplication2
     {
         static void Main(string[] args)
         {
-            //test
 
             RezeptModel RezeptBasiskuchen = new RezeptModel();
             RezeptBasiskuchen.SetZutatMehl(500);
