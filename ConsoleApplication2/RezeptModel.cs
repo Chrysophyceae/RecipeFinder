@@ -8,35 +8,35 @@ namespace ConsoleApplication2
 {
     class RezeptModel
     {
-        int MehlinGramm = 0;
-        int ZuckerinGramm = 0;
-        int ButterinGramm = 0;
-        int EierStueck = 0;
+        int mehlinGramm = 0;
+        int zuckerinGramm = 0;
+        int butterinGramm = 0;
+        int eierStueck = 0;
         string rezeptname = "Rezept ohne Namen";
 
-        public void SetName(string RezeptNameEingegeben)
+        public void SetName(string rezeptNameEingegeben)
         {
-            rezeptname = RezeptNameEingegeben;
+            rezeptname = rezeptNameEingegeben;
         }
 
-        public void SetZutatMehl(int MehlVorhanden)
+        public void SetZutatMehl(int mehlVorhanden)
         {
-           MehlinGramm = MehlVorhanden;
+           mehlinGramm = mehlVorhanden;
         }
 
-        public void SetZutatZucker(int ZuckerVorhanden)
+        public void SetZutatZucker(int zuckerVorhanden)
         {
-            ZuckerinGramm = ZuckerVorhanden;
+            zuckerinGramm = zuckerVorhanden;
         }
 
-        public void SetZutatButter(int ButterVorhanden)
+        public void SetZutatButter(int butterVorhanden)
         {
-            ButterinGramm = ButterVorhanden;
+            butterinGramm = butterVorhanden;
         }
 
-        public void SetZutatEier(int EierVorhanden)
+        public void SetZutatEier(int eierVorhanden)
         {
-            EierStueck = EierVorhanden;
+            eierStueck = eierVorhanden;
         }
 
         public string GetName()
@@ -46,22 +46,22 @@ namespace ConsoleApplication2
 
         public int GetZutatMehl()
         {
-            return MehlinGramm;
+            return mehlinGramm;
         }
 
         public int GetZutatZucker()
         {
-            return ZuckerinGramm;
+            return zuckerinGramm;
         }
 
         public int GetZutatButter()
         {
-            return ButterinGramm;
+            return butterinGramm;
         }
 
         public int GetZutatEier()
         {
-            return EierStueck;
+            return eierStueck;
         }
     }
 }
