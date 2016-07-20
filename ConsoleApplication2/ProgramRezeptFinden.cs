@@ -12,27 +12,28 @@ namespace ConsoleApplication2
         {
 
             RezeptModel RezeptBasiskuchen = new RezeptModel();
+            RezeptBasiskuchen.SetName("Basiskuchen");
             RezeptBasiskuchen.SetZutatMehl(500);
             RezeptBasiskuchen.SetZutatZucker(100);
             RezeptBasiskuchen.SetZutatButter(100);
             RezeptBasiskuchen.SetZutatEier(4);
 
-
-
             RezeptModel RezeptZweiterkuchen = new RezeptModel();
-            string rezeptname = "Rezept Zweiterkuchen";
+            RezeptZweiterkuchen.SetName("Zweiter Kuchen");
             RezeptZweiterkuchen.SetZutatMehl(520);
             RezeptZweiterkuchen.SetZutatZucker(120);
             RezeptZweiterkuchen.SetZutatButter(120);
             RezeptZweiterkuchen.SetZutatEier(4);
 
             RezeptModel RezeptDritterkuchen = new RezeptModel();
+            RezeptDritterkuchen.SetName("Dritter Kuchen");
             RezeptDritterkuchen.SetZutatMehl(250);
             RezeptDritterkuchen.SetZutatZucker(55);
             RezeptDritterkuchen.SetZutatButter(90);
             RezeptDritterkuchen.SetZutatEier(2);
 
             RezeptModel RezeptVierterkuchen = new RezeptModel();
+            RezeptVierterkuchen.SetName("Vierter Kuchen");
             RezeptVierterkuchen.SetZutatMehl(400);
             RezeptVierterkuchen.SetZutatZucker(120);
             RezeptVierterkuchen.SetZutatButter(130);
@@ -44,10 +45,10 @@ namespace ConsoleApplication2
             VorhandeneZutaten.SetZutatButter(130);
             VorhandeneZutaten.SetZutatEier(3);
 
-            Console.WriteLine("Vergleich Zweiter Kuchen" + VergleichEingabemitRezept(VorhandeneZutaten, RezeptZweiterkuchen));
+            Console.WriteLine("Vergleich mit" + VergleichEingabemitRezept(VorhandeneZutaten, RezeptZweiterkuchen));
             Console.WriteLine("Vergleich Dritter Kuchen" + VergleichEingabemitRezept(VorhandeneZutaten, RezeptDritterkuchen));
 
-            Console.WriteLine("Rezept Zweiterkuchen");
+            Console.WriteLine(RezeptZweiterkuchen.GetName());
             Console.WriteLine(RezeptZweiterkuchen.GetZutatMehl() + " g Mehl");
             Console.WriteLine(RezeptZweiterkuchen.GetZutatZucker() + " g Zucker");
             Console.WriteLine(RezeptZweiterkuchen.GetZutatButter() + " g Butter");
@@ -77,14 +78,14 @@ namespace ConsoleApplication2
         }
 
 
-        private static string AusgabeVerglichenesRezept(RezeptModel a, RezeptModel b)
+        private static void AusgabeRezept(RezeptModel rezept)
         {
 
-            Console.WriteLine("RezeptModel b");
-            Console.WriteLine(RezeptModel b.GetZutatMehl() + " g Mehl");
-            Console.WriteLine(RezeptZweiterkuchen.GetZutatZucker() + " g Zucker");
-            Console.WriteLine(RezeptZweiterkuchen.GetZutatButter() + " g Butter");
-            Console.WriteLine(RezeptZweiterkuchen.GetZutatEier() + " Eier");
+            Console.WriteLine(rezept.GetName());
+            Console.WriteLine(rezept.GetZutatMehl() + " g Mehl");
+            Console.WriteLine(rezept.GetZutatZucker() + " g Zucker");
+            Console.WriteLine(rezept.GetZutatButter() + " g Butter");
+            Console.WriteLine(rezept.GetZutatEier() + " Eier");
         }
     }
 }

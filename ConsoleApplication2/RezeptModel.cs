@@ -12,6 +12,12 @@ namespace ConsoleApplication2
         int ZuckerinGramm = 0;
         int ButterinGramm = 0;
         int EierStueck = 0;
+        string rezeptname = "Rezept ohne Namen";
+
+        public void SetName(string RezeptNameEingegeben)
+        {
+            rezeptname = RezeptNameEingegeben;
+        }
 
         public void SetZutatMehl(int MehlVorhanden)
         {
@@ -31,6 +37,11 @@ namespace ConsoleApplication2
         public void SetZutatEier(int EierVorhanden)
         {
             EierStueck = EierVorhanden;
+        }
+
+        public string GetName()
+        {
+            return rezeptname;
         }
 
         public int GetZutatMehl()
