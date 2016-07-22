@@ -39,6 +39,18 @@ namespace ConsoleApplication2
             rezeptVierterkuchen.SetZutatButter(130);
             rezeptVierterkuchen.SetZutatEier(3);
 
+
+            RezeptModel rezeptFuenfterKuchen = new RezeptModel();
+            rezeptFuenfterKuchen.SetName("Fuenfter Kuchen");
+            Dictionary<string, int> zutatenlisteFuenfterKuchen = new Dictionary<string, int>();
+            zutatenlisteFuenfterKuchen.Add("Mehl", 500);
+            zutatenlisteFuenfterKuchen.Add("Zucker", 100);
+            zutatenlisteFuenfterKuchen.Add("Butter", 100);
+            zutatenlisteFuenfterKuchen.Add("Eier", 4);
+            zutatenlisteFuenfterKuchen.Add("Nüsse", 50);
+            rezeptFuenfterKuchen.SetZutatenliste(zutatenlisteFuenfterKuchen);
+
+
             RezeptModel vorhandeneZutaten = new RezeptModel();
             vorhandeneZutaten.SetZutatMehl(400);
             vorhandeneZutaten.SetZutatZucker(120);
@@ -61,6 +73,7 @@ namespace ConsoleApplication2
             AddRezept(rezepte, rezeptZweiterkuchen);
             AddRezept(rezepte, rezeptDritterkuchen);
             AddRezept(rezepte, rezeptVierterkuchen);
+            AddRezept(rezepte, rezeptFuenfterKuchen);
 
 
             foreach (var keyValueRezept in rezepte)

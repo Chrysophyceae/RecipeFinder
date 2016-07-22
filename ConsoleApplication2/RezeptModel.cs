@@ -14,6 +14,14 @@ namespace ConsoleApplication2
         int eierStueck = 0;
         string rezeptname = "Rezept ohne Namen";
 
+        Dictionary<string, int> zutatenliste = new Dictionary<string, int>();
+
+        public void SetZutatenliste(Dictionary<string, int> zutatenlisteEingegeben)
+        {
+            zutatenliste = zutatenlisteEingegeben;
+        }
+
+
         public void SetName(string rezeptNameEingegeben)
         {
             rezeptname = rezeptNameEingegeben;
@@ -38,6 +46,12 @@ namespace ConsoleApplication2
         {
             eierStueck = eierVorhanden;
         }
+
+        public Dictionary<string, int> GetZutatenliste()
+        {
+            return zutatenliste;
+        }
+
 
         public string GetName()
         {
