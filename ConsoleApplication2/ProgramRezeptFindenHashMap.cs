@@ -11,12 +11,12 @@ namespace ConsoleApplication2
         static void Main(string[] args)
         {
 
-            RezeptModel rezeptErsterkuchen = new RezeptModel();
-            rezeptErsterkuchen.SetName("Basiskuchen");
-            rezeptErsterkuchen.SetZutatMehl(500);
-            rezeptErsterkuchen.SetZutatZucker(100);
-            rezeptErsterkuchen.SetZutatButter(100);
-            rezeptErsterkuchen.SetZutatEier(4);
+            RezeptModel rezeptBasiskuchen = new RezeptModel();
+            rezeptBasiskuchen.SetName("Basiskuchen");
+            rezeptBasiskuchen.SetZutatMehl(500);
+            rezeptBasiskuchen.SetZutatZucker(100);
+            rezeptBasiskuchen.SetZutatButter(100);
+            rezeptBasiskuchen.SetZutatEier(4);
 
             RezeptModel rezeptZweiterkuchen = new RezeptModel();
             rezeptZweiterkuchen.SetName("Zweiter Kuchen");
@@ -45,38 +45,30 @@ namespace ConsoleApplication2
             vorhandeneZutaten.SetZutatButter(1130);
             vorhandeneZutaten.SetZutatEier(3);
 
-           /* VergleichRezept(vorhandeneZutaten, rezeptErsterkuchen);
+            VergleichRezept(vorhandeneZutaten, rezeptBasiskuchen);
             VergleichRezept(vorhandeneZutaten, rezeptZweiterkuchen);
             VergleichRezept(vorhandeneZutaten, rezeptDritterkuchen);
-            VergleichRezept(vorhandeneZutaten, rezeptVierterkuchen);*/
+            VergleichRezept(vorhandeneZutaten, rezeptVierterkuchen);
 
-            Dictionary<string, RezeptModel> rezepte = new Dictionary<string, RezeptModel>();
+            // Create a HashMap with three key/value pairs.
+            HashMap hm = new HashMap();
+            hm.put("One", "1");
+            hm.put("Two", "2a");
+            hm.put("Two", "2b");
+            hm.put("Three", "3");
 
-            /*rezepte.Add(rezeptErsterkuchen.GetName(), rezeptErsterkuchen);
-            rezepte.Add(rezeptZweiterkuchen.GetName(), rezeptZweiterkuchen);
-            rezepte.Add(rezeptDritterkuchen.GetName(), rezeptDritterkuchen);
-            rezepte.Add(rezeptVierterkuchen.GetName(), rezeptVierterkuchen);*/
-
-            AddRezept(rezepte, rezeptErsterkuchen); //übergibt Daten in dictionary
-            AddRezept(rezepte, rezeptZweiterkuchen);
-            AddRezept(rezepte, rezeptDritterkuchen);
-            AddRezept(rezepte, rezeptVierterkuchen);
-
-
-            foreach (var keyValueRezept in rezepte)
+            // Iterate over the HashMap to see what we just put in.
+            Set set = hm.entrySet();
+            Iterator setIter = set.iterator();
+            while (setIter.hasNext())
             {
-                VergleichRezept(vorhandeneZutaten, keyValueRezept.Value);
+                System.out.println(setIter.next());
             }
+
             Console.ReadKey();
 
         }
 
-
-        private static void AddRezept(Dictionary<string, RezeptModel> rezepte, RezeptModel rezept)
-        {
-            rezepte.Add(rezept.GetName(), rezept); //rezeptname ist der key, value ist rezept. es ginge auch eine liste oder collection oder so, weil wir das rezpt zur zeit noch nicht mit namen ansprechen wollen
-        }
-   
         private static void VergleichRezept(RezeptModel vorhandeneZutaten, RezeptModel rezeptZutaten)
         {
             if (GenugZutaten(vorhandeneZutaten, rezeptZutaten))
