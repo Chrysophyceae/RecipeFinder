@@ -50,7 +50,7 @@ namespace ConsoleApplication2
             VergleichRezept(vorhandeneZutaten, rezeptDritterkuchen);
             VergleichRezept(vorhandeneZutaten, rezeptVierterkuchen);*/
 
-            Dictionary<string, RezeptModel> rezepte = new Dictionary<string, RezeptModel>();
+            Dictionary<string, RezeptModel> rezepte = new Dictionary<string, RezeptModel>(); // hier sind nur die gesamten rezepte drinnen, die über den namen angesprochen werden können. wir holen einfach alle der reihe nach. Die Zutaten sind halt fix
 
             /*rezepte.Add(rezeptErsterkuchen.GetName(), rezeptErsterkuchen);
             rezepte.Add(rezeptZweiterkuchen.GetName(), rezeptZweiterkuchen);
