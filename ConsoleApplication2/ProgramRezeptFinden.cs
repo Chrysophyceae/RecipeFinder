@@ -39,17 +39,19 @@ namespace ConsoleApplication2
             rezeptVierterkuchen.SetZutatButter(130);
             rezeptVierterkuchen.SetZutatEier(3);
 
+            
+
 
             RezeptModel rezeptFuenfterKuchen = new RezeptModel();
             rezeptFuenfterKuchen.SetName("Fuenfter Kuchen");
-            Dictionary<string, int> zutatenlisteFuenfterKuchen = new Dictionary<string, int>();
-            zutatenlisteFuenfterKuchen.Add("Mehl", 500);
-            zutatenlisteFuenfterKuchen.Add("Zucker", 100);
-            zutatenlisteFuenfterKuchen.Add("Butter", 100);
-            zutatenlisteFuenfterKuchen.Add("Eier", 4);
-            zutatenlisteFuenfterKuchen.Add("Nüsse", 50);
+                Dictionary<string, int> zutatenlisteFuenfterKuchen = new Dictionary<string, int>();
+                zutatenlisteFuenfterKuchen.Add("Mehl", 500);
+                zutatenlisteFuenfterKuchen.Add("Zucker", 100);
+                zutatenlisteFuenfterKuchen.Add("Butter", 100);
+                zutatenlisteFuenfterKuchen.Add("Eier", 4);
+                zutatenlisteFuenfterKuchen.Add("Nüsse", 50);
             rezeptFuenfterKuchen.SetZutatenliste(zutatenlisteFuenfterKuchen);
-
+            
 
             RezeptModel vorhandeneZutaten = new RezeptModel();
             vorhandeneZutaten.SetZutatMehl(400);
@@ -62,7 +64,11 @@ namespace ConsoleApplication2
             VergleichRezept(vorhandeneZutaten, rezeptDritterkuchen);
             VergleichRezept(vorhandeneZutaten, rezeptVierterkuchen);*/
 
-            Dictionary<string, RezeptModel> rezepte = new Dictionary<string, RezeptModel>(); // hier sind nur die gesamten rezepte drinnen, die über den namen angesprochen werden können. wir holen einfach alle der reihe nach. Die Zutaten sind halt fix
+            Dictionary<string, RezeptModel> rezepte = new Dictionary<string, RezeptModel>();
+            // Typ Rezeptmodel statt int
+            // hier sind nur die gesamten rezepte drinnen, die über den namen angesprochen werden können. wir holen einfach alle der reihe nach. Die Zutaten sind halt fix
+            //Dictionary<string, int> dictionaryvariable = new Dictionary<string, int>();
+
 
             /*rezepte.Add(rezeptErsterkuchen.GetName(), rezeptErsterkuchen);
             rezepte.Add(rezeptZweiterkuchen.GetName(), rezeptZweiterkuchen);
@@ -75,17 +81,34 @@ namespace ConsoleApplication2
             AddRezept(rezepte, rezeptVierterkuchen);
             AddRezept(rezepte, rezeptFuenfterKuchen);
 
-
-            foreach (var keyValueRezept in rezepte)
+           
+           foreach (KeyValuePair<string, RezeptModel> keyValueRezept in rezepte)
             {
                 VergleichRezept(vorhandeneZutaten, keyValueRezept.Value);
             }
+
             Console.ReadKey();
 
         }
 
 
-        private static void AddRezept(Dictionary<string, RezeptModel> rezepte, RezeptModel rezept)
+
+        private static void AusgabeZutatenliste(RezeptModel rezept)
+        {
+            Console.WriteLine("Zutatenliste für" + rezept.GetName());
+
+            foreach (KeyValuePair<string, int> zutat in rezept.GetZutatenliste())
+            {
+                Console.WriteLine(zutat.Value + " , " + zutat.Key);
+            }
+        }
+
+        /*foreach (KeyValuePair<string, int> zutat in zutatenlisteFuenfterKuchen)
+            {
+                Console.WriteLine(zutat.Value + " , " + zutat.Key);
+            }*/
+
+    private static void AddRezept(Dictionary<string, RezeptModel> rezepte, RezeptModel rezept)
         {
             rezepte.Add(rezept.GetName(), rezept); //rezeptname ist der key, value ist rezept. es ginge auch eine liste oder collection oder so, weil wir das rezpt zur zeit noch nicht mit namen ansprechen wollen
         }
@@ -96,6 +119,7 @@ namespace ConsoleApplication2
             {
                 Console.WriteLine("Genug Zutaten für dieses Rezept vorhanden:");
                 AusgabeRezept(rezeptZutaten);
+                AusgabeZutatenliste(rezeptZutaten);
             }
             else
             {
