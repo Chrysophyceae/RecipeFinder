@@ -8,10 +8,7 @@ namespace ConsoleApplication2
 {
     class RezeptModel
     {
-        int mehlinGramm = 0;
-        int zuckerinGramm = 0;
-        int butterinGramm = 0;
-        int eierStueck = 0;
+        
         string rezeptname = "Rezept ohne Namen";
 
         Dictionary<string, int> zutatenliste = new Dictionary<string, int>();
@@ -27,26 +24,7 @@ namespace ConsoleApplication2
             rezeptname = rezeptNameEingegeben;
         }
 
-        public void SetZutatMehl(int mehlVorhanden)
-        {
-           mehlinGramm = mehlVorhanden;
-        }
-
-        public void SetZutatZucker(int zuckerVorhanden)
-        {
-            zuckerinGramm = zuckerVorhanden;
-        }
-
-        public void SetZutatButter(int butterVorhanden)
-        {
-            butterinGramm = butterVorhanden;
-        }
-
-        public void SetZutatEier(int eierVorhanden)
-        {
-            eierStueck = eierVorhanden;
-        }
-
+        
         public Dictionary<string, int> GetZutatenliste()
         {
             return zutatenliste;
@@ -58,24 +36,6 @@ namespace ConsoleApplication2
             return rezeptname;
         }
 
-        public int GetZutatMehl()
-        {
-            return mehlinGramm;
-        }
 
-        public int GetZutatZucker()
-        {
-            return zuckerinGramm;
-        }
-
-        public int GetZutatButter()
-        {
-            return butterinGramm;
-        }
-
-        public int GetZutatEier()
-        {
-            return eierStueck;
-        }
     }
 }

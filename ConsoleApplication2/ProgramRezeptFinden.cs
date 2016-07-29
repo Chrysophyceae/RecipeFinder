@@ -11,36 +11,42 @@ namespace ConsoleApplication2
         static void Main(string[] args)
         {
 
-            RezeptModel rezeptErsterkuchen = new RezeptModel();
-            rezeptErsterkuchen.SetName("Basiskuchen");
-            rezeptErsterkuchen.SetZutatMehl(500);
-            rezeptErsterkuchen.SetZutatZucker(100);
-            rezeptErsterkuchen.SetZutatButter(100);
-            rezeptErsterkuchen.SetZutatEier(4);
-
+            
+                        RezeptModel rezeptErsterkuchen = new RezeptModel();
+            rezeptErsterkuchen.SetName(" Erster Kuchen");
+            Dictionary<string, int> zutatenlisteErsterKuchen = new Dictionary<string, int>();
+            zutatenlisteErsterKuchen.Add("Mehl", 500);
+            zutatenlisteErsterKuchen.Add("Zucker", 100);
+            zutatenlisteErsterKuchen.Add("Butter", 100);
+            zutatenlisteErsterKuchen.Add("Eier", 4);
+            rezeptErsterkuchen.SetZutatenliste(zutatenlisteErsterKuchen);
+            
             RezeptModel rezeptZweiterkuchen = new RezeptModel();
             rezeptZweiterkuchen.SetName("Zweiter Kuchen");
-            rezeptZweiterkuchen.SetZutatMehl(520);
-            rezeptZweiterkuchen.SetZutatZucker(120);
-            rezeptZweiterkuchen.SetZutatButter(120);
-            rezeptZweiterkuchen.SetZutatEier(4);
+            Dictionary<string, int> zutatenlisteZweiterKuchen = new Dictionary<string, int>();
+            zutatenlisteZweiterKuchen.Add("Mehl", 520);
+            zutatenlisteZweiterKuchen.Add("Zucker", 120);
+            zutatenlisteZweiterKuchen.Add("Butter", 120);
+            zutatenlisteZweiterKuchen.Add("Eier", 4);
+            rezeptZweiterkuchen.SetZutatenliste(zutatenlisteZweiterKuchen);
 
             RezeptModel rezeptDritterkuchen = new RezeptModel();
             rezeptDritterkuchen.SetName("Dritter Kuchen");
-            rezeptDritterkuchen.SetZutatMehl(250);
-            rezeptDritterkuchen.SetZutatZucker(55);
-            rezeptDritterkuchen.SetZutatButter(90);
-            rezeptDritterkuchen.SetZutatEier(2);
+            Dictionary<string, int> zutatenlisteDritterKuchen = new Dictionary<string, int>();
+            zutatenlisteDritterKuchen.Add("Mehl", 250);
+            zutatenlisteDritterKuchen.Add("Zucker", 55);
+            zutatenlisteDritterKuchen.Add("Butter", 90);
+            zutatenlisteDritterKuchen.Add("Eier", 2);
+            rezeptDritterkuchen.SetZutatenliste(zutatenlisteDritterKuchen);
 
             RezeptModel rezeptVierterkuchen = new RezeptModel();
             rezeptVierterkuchen.SetName("Vierter Kuchen");
-            rezeptVierterkuchen.SetZutatMehl(400);
-            rezeptVierterkuchen.SetZutatZucker(120);
-            rezeptVierterkuchen.SetZutatButter(130);
-            rezeptVierterkuchen.SetZutatEier(3);
-
-            
-
+                 Dictionary<string, int> zutatenlisteVierterKuchen = new Dictionary<string, int>();
+                zutatenlisteVierterKuchen.Add("Mehl", 400);
+                zutatenlisteVierterKuchen.Add("Zucker", 120);
+                zutatenlisteVierterKuchen.Add("Butter", 130);
+                zutatenlisteVierterKuchen.Add("Eier", 3);
+            rezeptVierterkuchen.SetZutatenliste(zutatenlisteVierterKuchen);
 
             RezeptModel rezeptFuenfterKuchen = new RezeptModel();
             rezeptFuenfterKuchen.SetName("Fuenfter Kuchen");
@@ -54,28 +60,17 @@ namespace ConsoleApplication2
             
 
             RezeptModel vorhandeneZutaten = new RezeptModel();
-            vorhandeneZutaten.SetZutatMehl(400);
-            vorhandeneZutaten.SetZutatZucker(120);
-            vorhandeneZutaten.SetZutatButter(1130);
-            vorhandeneZutaten.SetZutatEier(3);
-
-           /* VergleichRezept(vorhandeneZutaten, rezeptErsterkuchen);
-            VergleichRezept(vorhandeneZutaten, rezeptZweiterkuchen);
-            VergleichRezept(vorhandeneZutaten, rezeptDritterkuchen);
-            VergleichRezept(vorhandeneZutaten, rezeptVierterkuchen);*/
+            vorhandeneZutaten.SetName("Eingegebene Zutaten");
+            Dictionary<string, int> zutatenlisteVorhandeneZutaten = new Dictionary<string, int>();
+            zutatenlisteVorhandeneZutaten.Add("Mehl", 400);
+            zutatenlisteVorhandeneZutaten.Add("Zucker", 120);
+            zutatenlisteVorhandeneZutaten.Add("Butter", 1130);
+            zutatenlisteVorhandeneZutaten.Add("Eier", 3);
+            vorhandeneZutaten.SetZutatenliste(zutatenlisteVorhandeneZutaten);
 
             Dictionary<string, RezeptModel> rezepte = new Dictionary<string, RezeptModel>();
-            // Typ Rezeptmodel statt int
-            // hier sind nur die gesamten rezepte drinnen, die über den namen angesprochen werden können. wir holen einfach alle der reihe nach. Die Zutaten sind halt fix
-            //Dictionary<string, int> dictionaryvariable = new Dictionary<string, int>();
-
-
-            /*rezepte.Add(rezeptErsterkuchen.GetName(), rezeptErsterkuchen);
-            rezepte.Add(rezeptZweiterkuchen.GetName(), rezeptZweiterkuchen);
-            rezepte.Add(rezeptDritterkuchen.GetName(), rezeptDritterkuchen);
-            rezepte.Add(rezeptVierterkuchen.GetName(), rezeptVierterkuchen);*/
-
-            AddRezept(rezepte, rezeptErsterkuchen); //übergibt Daten in dictionary
+           
+            AddRezept(rezepte, rezeptErsterkuchen); 
             AddRezept(rezepte, rezeptZweiterkuchen);
             AddRezept(rezepte, rezeptDritterkuchen);
             AddRezept(rezepte, rezeptVierterkuchen);
@@ -103,63 +98,69 @@ namespace ConsoleApplication2
             }
         }
 
-        /*foreach (KeyValuePair<string, int> zutat in zutatenlisteFuenfterKuchen)
-            {
-                Console.WriteLine(zutat.Value + " , " + zutat.Key);
-            }*/
+       
 
     private static void AddRezept(Dictionary<string, RezeptModel> rezepte, RezeptModel rezept)
         {
-            rezepte.Add(rezept.GetName(), rezept); //rezeptname ist der key, value ist rezept. es ginge auch eine liste oder collection oder so, weil wir das rezpt zur zeit noch nicht mit namen ansprechen wollen
+            rezepte.Add(rezept.GetName(), rezept);
         }
    
+
         private static void VergleichRezept(RezeptModel vorhandeneZutaten, RezeptModel rezeptZutaten)
         {
             if (GenugZutaten(vorhandeneZutaten, rezeptZutaten))
             {
                 Console.WriteLine("Genug Zutaten für dieses Rezept vorhanden:");
-                AusgabeRezept(rezeptZutaten);
                 AusgabeZutatenliste(rezeptZutaten);
             }
             else
-            {
+                {
                 FehlendeZutaten(vorhandeneZutaten, rezeptZutaten);
-            }
+                }
             }
 
         private static bool GenugZutaten(RezeptModel vorhandeneZutaten, RezeptModel rezeptZutaten)
         {
-            if (vorhandeneZutaten.GetZutatMehl() < rezeptZutaten.GetZutatMehl()) { return false; }
-            if (vorhandeneZutaten.GetZutatZucker() < rezeptZutaten.GetZutatZucker()) { return false; }
-            if (vorhandeneZutaten.GetZutatButter() < rezeptZutaten.GetZutatButter()) { return false; }
-            if (vorhandeneZutaten.GetZutatEier() < rezeptZutaten.GetZutatEier()) { return false; }
+            //if (vorhandeneZutaten.GetZutatMehl() < rezeptZutaten.GetZutatMehl()) { return false; }
+            //if (vorhandeneZutaten.GetZutatZucker() < rezeptZutaten.GetZutatZucker()) { return false; }
+            //if (vorhandeneZutaten.GetZutatButter() < rezeptZutaten.GetZutatButter()) { return false; }
+            //if (vorhandeneZutaten.GetZutatEier() < rezeptZutaten.GetZutatEier()) { return false; }
+
+            foreach (KeyValuePair<string, int> zutat in rezeptZutaten.GetZutatenliste())
+            {
+                Dictionary<string, int> vorhandeneZutatenliste = vorhandeneZutaten.GetZutatenliste();
+                Console.WriteLine("prüfung "+zutat.Value + " , " + zutat.Key);
+                 if (vorhandeneZutatenliste.ContainsKey(zutat.Key))
+                    { Console.WriteLine(zutat.Value + " vorhanden");
+                    int vorhandeneZutat = vorhandeneZutatenliste[zutat.Key]; ;
+                    int rezeptZutat = zutat.Value;
+                    if (vorhandeneZutat< rezeptZutat) { return false; }
+                        }
+                 
+                
+                  }
+
 
             return true;
         }
 
+
+
         private static void FehlendeZutaten(RezeptModel vorhandeneZutaten, RezeptModel rezeptZutaten)
         {
             string ausgabetext = "zu wenig ";
-           
-            if (vorhandeneZutaten.GetZutatMehl() < rezeptZutaten.GetZutatMehl()) { ausgabetext += "Mehl "; }
-            if (vorhandeneZutaten.GetZutatZucker() < rezeptZutaten.GetZutatZucker()) { ausgabetext += "Zucker "; }
-            if (vorhandeneZutaten.GetZutatButter() < rezeptZutaten.GetZutatButter()) { ausgabetext += "Butter "; }
-            if (vorhandeneZutaten.GetZutatEier() < rezeptZutaten.GetZutatEier()) { ausgabetext += "Eier "; }
+
+            //if (vorhandeneZutaten.GetZutatMehl() < rezeptZutaten.GetZutatMehl()) { ausgabetext += "Mehl "; }
+            //if (vorhandeneZutaten.GetZutatZucker() < rezeptZutaten.GetZutatZucker()) { ausgabetext += "Zucker "; }
+            //if (vorhandeneZutaten.GetZutatButter() < rezeptZutaten.GetZutatButter()) { ausgabetext += "Butter "; }
+            //if (vorhandeneZutaten.GetZutatEier() < rezeptZutaten.GetZutatEier()) { ausgabetext += "Eier "; }
 
             Console.WriteLine(ausgabetext + "vorhanden für: "+ rezeptZutaten.GetName());
            
         }
 
 
-        private static void AusgabeRezept(RezeptModel rezept)
-        {
-
-            Console.WriteLine(rezept.GetName());
-            Console.WriteLine(rezept.GetZutatMehl() + " g Mehl");
-            Console.WriteLine(rezept.GetZutatZucker() + " g Zucker");
-            Console.WriteLine(rezept.GetZutatButter() + " g Butter");
-            Console.WriteLine(rezept.GetZutatEier() + " Eier");
-        }
+       
     }
 }
 
