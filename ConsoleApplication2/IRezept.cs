@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication2
 {
-    class RezeptModel
+    interface IRezept
     {
-
-
-        public string rezeptname { get; set; }
-    
-        public Dictionary<string, int> zutatenliste { get; set; }
-
+        string rezeptname { get; set; }
+        Dictionary<string, int> zutatenliste { get; set; }
     }
 }
