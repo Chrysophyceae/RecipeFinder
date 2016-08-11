@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication2
+namespace MainProgram
 {
     class Program
     {
@@ -81,7 +82,32 @@ namespace ConsoleApplication2
                 VergleichRezept(vorhandeneZutaten, rezeptInList);
             }
 
+            
+            PrintList();
+
+
+
             Console.ReadKey();
+        }
+
+        public static void PrintList()
+        {
+            List<Filestatusmodel> profenFiles = new List<Filestatusmodel>();
+            Filestatusmodel file1 = new Filestatusmodel();
+            Filestatusmodel file2 = new Filestatusmodel();
+            file1.Status = true;
+            file2.Status = false;
+            file1.Name = "Datei1";
+            file2.Name = "Datei2";
+
+            profenFiles.Add(file1);
+            profenFiles.Add(file2);
+
+            foreach (Filestatusmodel filestatus in profenFiles)
+            {
+                Console.WriteLine(filestatus.Name);
+            }
+
         }
 
         private static void AusgabeZutatenliste(RezeptModel rezept)

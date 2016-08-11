@@ -58,10 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IRezept.cs" />
+    <Compile Include="Models\Filestatusmodel.cs" />
+    <Compile Include="Interfaces\IRezept.cs" />
     <Compile Include="ProgramRezeptFinden.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RezeptModel.cs" />
+    <Compile Include="Models\RezeptModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
