@@ -58,8 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AusgabeZutatenlisteComponent.cs" />
     <Compile Include="Models\Filestatusmodel.cs" />
     <Compile Include="Interfaces\IRezept.cs" />
+    <Compile Include="Controller\PrintController.cs" />
+    <Compile Include="Controller\PrintListComponent.cs" />
     <Compile Include="ProgramRezeptFinden.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\RezeptModel.cs" />

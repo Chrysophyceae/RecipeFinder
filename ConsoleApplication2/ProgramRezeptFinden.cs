@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Controller;
+
 
 namespace MainProgram
 {
     class Program
     {
+        //PrintController printController = new PrintController();
         static void Main(string[] args)
         {
 
@@ -82,50 +85,26 @@ namespace MainProgram
                 VergleichRezept(vorhandeneZutaten, rezeptInList);
             }
 
-            
-            PrintList();
+
+            PrintController printController = new PrintController();
+            printController.printListComponent.PrintList();
 
 
 
             Console.ReadKey();
         }
 
-        public static void PrintList()
-        {
-            List<Filestatusmodel> profenFiles = new List<Filestatusmodel>();
-            Filestatusmodel file1 = new Filestatusmodel();
-            Filestatusmodel file2 = new Filestatusmodel();
-            file1.Status = true;
-            file2.Status = false;
-            file1.Name = "Datei1";
-            file2.Name = "Datei2";
+       
 
-            profenFiles.Add(file1);
-            profenFiles.Add(file2);
-
-            foreach (Filestatusmodel filestatus in profenFiles)
-            {
-                Console.WriteLine(filestatus.Name);
-            }
-
-        }
-
-        private static void AusgabeZutatenliste(RezeptModel rezept)
-        {
-            Console.WriteLine("Zutatenliste für" + rezept.rezeptname);
-
-            foreach (KeyValuePair<string, int> zutat in rezept.zutatenliste)
-            {
-                Console.WriteLine(zutat.Value + " , " + zutat.Key);
-            }
-        }
 
         private static void VergleichRezept(RezeptModel vorhandeneZutaten, RezeptModel rezeptZutaten)
         {
             if (GenugZutaten(vorhandeneZutaten, rezeptZutaten))
             {
                 Console.WriteLine("Genug Zutaten für dieses Rezept vorhanden:");
-                AusgabeZutatenliste(rezeptZutaten);
+                PrintController printController = new PrintController();
+                printController.ausgabeZutatenlisteComponent.AusgabeZutatenliste(rezeptZutaten);
+               
             }
             else
             {
