@@ -10,7 +10,7 @@ namespace Controller
 {
     class PrintController
     {
-       public AusgabeZutatenlisteComponent ausgabeZutatenlisteComponent { get; }
+        public AusgabeZutatenlisteComponent ausgabeZutatenlisteComponent { get; }
         public PrintListComponent printListComponent { get; }
 
         public PrintController()

@@ -66,6 +66,7 @@
     <Compile Include="ProgramRezeptFinden.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\RezeptModel.cs" />
+    <Compile Include="RezeptFinder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

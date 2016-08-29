@@ -10,7 +10,6 @@ namespace Controller
 {
     class AusgabeZutatenlisteComponent
     {
-
         public void AusgabeZutatenliste(RezeptModel rezept)
         {
             Console.WriteLine("Zutatenliste für" + rezept.rezeptname);
